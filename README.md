@@ -27,7 +27,7 @@ Prerequisites
 
 - AWS Account
 - Two Ubuntu EC2 instances
-- Java 17
+- Java 21
 - Jenkins
 - Git
 - Internet connection

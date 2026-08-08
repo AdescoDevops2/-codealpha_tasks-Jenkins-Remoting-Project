@@ -6,7 +6,7 @@ Project Objectives
 
 - Install Jenkins on a controller server.
 - Configure a remote Jenkins agent.
-- Connect the agent using Jenkins Remoting ("agent.jar").
+- Connect the agent using Jenkins Remoting nodes.
 - Execute build jobs on the remote agent.
 - Integrate Jenkins with a GitHub repository.
 - Learn the fundamentals of distributed builds in Jenkins.
@@ -16,7 +16,7 @@ Architecture
              Jenkins Controller (Master)
                  Ubuntu EC2 Instance
                         │
-          Jenkins Remoting (agent.jar)
+          Jenkins Remoting (nodes)
                         │
                         ▼
              Jenkins Agent (Ubuntu EC2)
@@ -42,25 +42,6 @@ Technologies Used
 - Amazon EC2
 - Linux Shell
 
----
-
-Project Structure
-
-jenkins-remoting-project/
-│
-├── README.md
-├── scripts/
-│   ├── install-java.sh
-│   ├── install-jenkins.sh
-│   └── connect-agent.sh
-│
-└── screenshots/
-    ├── jenkins-dashboard.png
-    ├── node-online.png
-    └── build-success.png
-
----
-
 Installation Steps
 
 1. Launch Two EC2 Instances
@@ -85,21 +66,6 @@ Create a new node in Jenkins and configure:
 - Labels
 - Launch method
 
-5. Download agent.jar
-
-wget http://CONTROLLER-IP:8080/jnlpJars/agent.jar
-
-6. Connect the Agent
-
-java -jar agent.jar \
--url http://CONTROLLER-IP:8080 \
--secret YOUR_SECRET \
--name ubuntu-agent \
--workDir "/home/ubuntu/jenkins"
-
-The Jenkins dashboard should display the agent as Online.
-
----
 
 Running a Build
 
@@ -116,8 +82,6 @@ java -version
 
 The build executes on the remote Jenkins agent.
 
----
-
 Expected Output
 
 - Agent successfully connected.
@@ -125,13 +89,11 @@ Expected Output
 - Build completed successfully.
 - Console output displays the remote agent's hostname.
 
----
-
 Skills Gained
 
 - Jenkins installation
 - Jenkins controller and agent configuration
-- Jenkins Remoting ("agent.jar")
+- Jenkins Remoting ("nodes")
 - Distributed builds
 - CI/CD fundamentals
 - Linux administration
@@ -147,9 +109,5 @@ Future Improvements
 
 Ojo Emmanuel-Adeiza
 
-Cybersecurity | DevOps | AWS Cloud Engineer | Network Engineer
-
-
-License
-
+Cybersecurity Analyst | DevOps | AWS Cloud Engineer | Network Engineer
 This project is provided for educational and learning purposes.
